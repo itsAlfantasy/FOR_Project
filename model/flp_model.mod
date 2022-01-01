@@ -1,13 +1,16 @@
- GENERAL PARAMETERS
+# GENERAL PARAMETERS
 param n >= 0; # Number of houses
 param range >= 0; # Maximum range
-param Vc >= 0;
-param Fc >= 0;
-param capacity >= 0;
+param capacity >= 0; # Truck capacity
+param Vc >= 0; # Distance fee
+param Fc >= 0; # Fixed fee
 
 
+# BASIC SET ------------------------------------------------------
 set Houses := 1..n;
 
+
+# HOUSE'S PARAMETERS ---------------------------------------------
 param Cx{Houses}; # x coordinate
 param Cy{Houses}; # y coordinate
 param Dc{Houses}; # costruction cost
@@ -56,3 +59,7 @@ s.t. justOneConnection {i in Houses} :
 # if connected, the house must be in the range of the mini-market
 s.t. const4 {i in Houses, j in Minimarket} :
 	connected[i,j] ==> ((range - dist[i,j]) >= 0);
+
+# identify the deposit that is at the first location
+s.t. deposit :
+	installed[1] = 1;
