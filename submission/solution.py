@@ -104,16 +104,17 @@ def main():
     pathModel = sys.argv[2]
     pathData = sys.argv[3]
 
-    ampl = AMPL(Environment("/Users/itsalfantasy/Documents/ampl_macos64"))
-    #ampl = AMPL(Environment(pathEnv))
+    # TAKE THE FLP_MODEL.MOD FILE THAT YOU FIND IN THIS FOLDER
+    #pathEnv = "ABSOLUTE_PATH_AMPL_ENVIRONMENT"
+    #pathModel = "ABSOLUTE_PATH_FLP_MODEL.MOD"
+    #pathData = "ABSOLUTE_PARTH_DATA_FILE"
+
+    ampl = AMPL(Environment(pathEnv))
     
     ampl.option['ampl_include'] = 'models'
     ampl.option['solver'] = 'cplex'
-    ampl.read('/Users/itsalfantasy/Documents/ampl_macos64/minimart_project/flp_model.mod')
-    ampl.readData('/Users/itsalfantasy/Documents/ampl_macos64/minimart_project/minimart-I-50.dat')
-
-    #ampl.read(pathModel)
-    #ampl.readData(pathData)
+    ampl.read(pathModel)
+    ampl.readData(pathData)
     
     ampl.solve()
 
