@@ -50,3 +50,7 @@ At the end we'll have a solution like this.
 3) Or, both `i` and `j` have already been included in two different existing routes and neither point is interior to its route, in which case the two routes are merged.
 
 *STEP 4*: If the savings list `s(i, j)` has elements return to *STEP 3*, processing the next element in the list. Otherwise stop.
+
+### Devs 💻
+* 👩🏻‍💻 [Laura Amabili](https://github.com/LauraAmabili)
+* 👨🏻‍💻 [Alfonso Catelli](https://github.com/itsAlfantasy)
